@@ -31,9 +31,9 @@ namespace NthFibinacci
                 }
 
                 int[,] baseVect = { { 1 }, { 1 } };
-                var fibNMat = GetFibMatPower(n - 1);
+                var fibNLess1Mat = GetFibMatPower(n - 1);
 
-                return Mat2By1Multiplication(fibNMat, baseVect)[1,0];
+                return Mat2By1Multiplication(fibNLess1Mat, baseVect)[1,0];
             }
 
             private int[,] GetFibMatPower(int exp)
@@ -70,13 +70,6 @@ namespace NthFibinacci
                 var boolArray = new bool[bitArray.Count];
                 bitArray.CopyTo(boolArray, 0);
 
-                /*
-                foreach (var element in boolArray)
-                {
-                    Console.Write(element + " ");
-                }
-                */
-
                 return boolArray;
             }
 
@@ -88,7 +81,13 @@ namespace NthFibinacci
                 return mat;
             }
 
-            private int[,] Mat2By1Multiplication(int[,] mat, int[,] vector) { return null; };
+            private int[,] Mat2By1Multiplication(int[,] mat, int[,] vector)
+            {
+                var retVect = new int[2, 1] {{ mat[0, 0] * vector[0, 0] + mat[0, 1] * vector[0, 1] },
+                                             { mat[1, 0] * vector[0, 0] + mat[1, 1] * vector[0, 1] }};
+
+                return retVect;
+            }
             
         }
 
