@@ -1,27 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27205.2004
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerrankChallenges1", "HackerrankChallenges\HackerrankChallenges1.csproj", "{46486B91-5200-4B2E-89D3-CA708898BD80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotateLinkedList", "HackerrankChallenges\RotateLinkedList.csproj", "{46486B91-5200-4B2E-89D3-CA708898BD80}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HackerrankChallenges2", "HackerrankChallenges2\HackerrankChallenges2.vcxproj", "{B1CE696E-FBDD-4848-B893-9772C07206AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerrankChallenges3", "HackerrankChallenges3\HackerrankChallenges3.csproj", "{81A0FD92-A2FE-4B1C-A3B5-AD54072F001A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindNumberOfContacts", "HackerrankChallenges3\FindNumberOfContacts.csproj", "{81A0FD92-A2FE-4B1C-A3B5-AD54072F001A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerRankChallenge4", "HackerRankChallenge4\HackerRankChallenge4.csproj", "{55BF3AC9-1B2E-442B-A6DF-EC19430FF062}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunningMedian", "HackerRankChallenge4\RunningMedian.csproj", "{55BF3AC9-1B2E-442B-A6DF-EC19430FF062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerrankChallenge5", "HackerrankChallenge5\HackerrankChallenge5.csproj", "{C1F328B7-AE91-4A7C-AAB3-11A6261A2DD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetBiggestIsland", "HackerrankChallenge5\GetBiggestIsland.csproj", "{C1F328B7-AE91-4A7C-AAB3-11A6261A2DD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerrankChallenge6", "HackerrankChallenge6\HackerrankChallenge6.csproj", "{CCE945D6-A01B-440E-9387-D64403EEEAD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetMaxNumberOfRecurringChar", "HackerrankChallenge6\GetMaxNumberOfRecurringChar.csproj", "{CCE945D6-A01B-440E-9387-D64403EEEAD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerrankChallenge7", "HackerrankChallenge7\HackerrankChallenge7.csproj", "{D1E9009B-750F-469D-AF31-89C7A8888B1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeapImplementation", "HackerrankChallenge7\HeapImplementation.csproj", "{D1E9009B-750F-469D-AF31-89C7A8888B1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerrankChallenge8", "HackerrankChallenge8\HackerrankChallenge8.csproj", "{970FBC9C-45B6-494F-825B-80C28C6F76D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaxPoints", "HackerrankChallenge8\MaxPoints.csproj", "{970FBC9C-45B6-494F-825B-80C28C6F76D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerrankChallenge9", "HackerrankChallenge9\HackerrankChallenge9.csproj", "{55C49480-3A39-438C-AF34-339AADD79123}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchingBracket", "HackerrankChallenge9\MatchingBracket.csproj", "{55C49480-3A39-438C-AF34-339AADD79123}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackerrankChallenge10", "HackerrankChallenge10\HackerrankChallenge10.csproj", "{09FCD54E-87FB-41CE-A826-0FE960E04DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoveZerosToEnd", "HackerrankChallenge10\MoveZerosToEnd.csproj", "{09FCD54E-87FB-41CE-A826-0FE960E04DF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NthFibonacci", "NthFibinacci\NthFibonacci.csproj", "{2FCF90FA-4251-4556-913B-947AE26CD6F9}"
 EndProject
