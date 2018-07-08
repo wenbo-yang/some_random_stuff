@@ -66,6 +66,26 @@ namespace MergeKSortedArray
             */
         }
 
+        //array1 is ==  array2
+
+        // sort them from end to begining 
+        void MergeTwoSortedArray(int[] array1, int end1, int[] array2)
+        {
+            int i = end1 - 1;
+            int j = array2.Length - 1;
+            int k = array1.Length + array2.Length - 1;
+
+            while (i >= 0 && j >= 0)
+            {
+                array1[k--] = array2[j] > array1[i] ? array2[j--] : array1[i--];
+            }
+
+            while (j >= 0)
+            {
+                array1[k--] = array2[j--];
+            }
+        }
+
         static void Main(string[] args)
         {
 
