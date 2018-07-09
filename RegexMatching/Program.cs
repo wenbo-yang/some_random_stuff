@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// use sliding window
-namespace LongestSubStringWithAtMostKDistinctChars
+namespace RegexMatching
 {
     class Program
     {

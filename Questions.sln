@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongestSubStringWithAtMostT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeMaxPathSum", "BinaryTreeMaxPathSum\BinaryTreeMaxPathSum.csproj", "{780032BD-484A-4260-8F9F-D99D377CBD99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NQueen", "NQueen\NQueen.csproj", "{A4E1ABBE-1BF4-4805-A1F6-94C4D708FE19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -303,6 +305,10 @@ Global
 		{780032BD-484A-4260-8F9F-D99D377CBD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{780032BD-484A-4260-8F9F-D99D377CBD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{780032BD-484A-4260-8F9F-D99D377CBD99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E1ABBE-1BF4-4805-A1F6-94C4D708FE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E1ABBE-1BF4-4805-A1F6-94C4D708FE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E1ABBE-1BF4-4805-A1F6-94C4D708FE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E1ABBE-1BF4-4805-A1F6-94C4D708FE19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

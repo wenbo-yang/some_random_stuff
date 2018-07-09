@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// use sliding window
-namespace LongestSubStringWithAtMostKDistinctChars
+namespace NQueen
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
         }

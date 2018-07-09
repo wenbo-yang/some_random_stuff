@@ -6,109 +6,111 @@ using System.Threading.Tasks;
 
 namespace MinWindowSubstring
 {
-    public class MinWindowSubstring
+    public static class MinWindowSubstring
     {
-        public string FindMinWindowSubstring(string substring, string fullString)
+
+        private static void AddToDictionary(char ch, Dictionary<char, int> substringHash)
         {
-            var substringHash = new Dictionary<char, int>();
-            var fullStringHash = new Dictionary<char, int>();
-            var charArray = substring.ToArray();
-            foreach (var character in charArray)
+            if (!substringHash.ContainsKey(ch))
             {
-                if (substringHash.ContainsKey(character))
-                {
-                    substringHash[character]++;
-                }
-                else
-                {
-                    substringHash.Add(character, 1);
-                }
+                substringHash.Add(ch, 0);
             }
 
-            foreach (var pair in substringHash)
-            {
-                fullStringHash.Add(pair.Key, 0);
-            }
-
-            var leftIndex = FindIndexOfNextCharInHash(0, fullString, substringHash);
-            if (leftIndex == -1)
-            {
-                return "";
-            }
-
-            var rightIndex = leftIndex;
-            int matchCount = 0;
-
-            string windowedString = "";
-
-            while (rightIndex < fullString.Length)
-            {
-                var rightChar = fullString[rightIndex];
-                if (substringHash.ContainsKey(rightChar))
-                {
-                    fullStringHash[rightChar]++;
-                    matchCount++;
-                }
-
-                while (leftIndex < fullString.Length && matchCount == substring.Length)
-                {
-                    if (string.IsNullOrWhiteSpace(windowedString) || windowedString.Length > rightIndex - leftIndex + 1)
-                    {
-                        windowedString = fullString.Substring(leftIndex, rightIndex - leftIndex + 1);
-                    }
-
-                    var leftChar = fullString[leftIndex];
-
-                    if (substringHash.ContainsKey(leftChar))
-                    {
-                        matchCount--;
-                        fullStringHash[leftChar]--;
-                    }
-
-                    leftIndex = FindIndexOfNextCharInHash(leftIndex + 1, fullString, substringHash);
-
-                }
-
-                rightIndex = FindIndexOfNextCharInHash(rightIndex + 1, fullString, substringHash);
-            }
-
-            return windowedString;
+            substringHash[ch]++;
         }
 
-        private int FindIndexOfNextCharInHash(int startIndex, string fullString, Dictionary<char, int> substringHash)
+        private static int FindIndexOfAnyCharInHash(int startIndex, string fullstring, Dictionary<char, int> substringHash)
         {
 
-            for (int leftIndex = startIndex; leftIndex < fullString.Length; leftIndex++)
+            for (int index = startIndex; index < fullstring.Length; index++)
             {
-                if (substringHash.ContainsKey(fullString[startIndex]))
+                if (substringHash.ContainsKey(fullstring[index]))
                 {
-                    return leftIndex;
+                    return index;
                 }
             }
 
             return -1;
         }
 
+        private static bool DoesWindowContainAllChars(Dictionary<char, int> substringHash)
+        {
+            foreach (var pair in substringHash)
+            {
+                if (pair.Value > 0)
+                {
+                    return false;
+                }
+            }
 
+            return true;
+        }
 
+        public static string FindMinWindowSubstring(string substring, string fullstring)
+        {
+            var substringHash = new Dictionary<char, int>();
+            var fullStringHash = new Dictionary<char, int>();
+            var charArray = substring.ToArray();
+            foreach (var ch in charArray)
+            {
+                AddToDictionary(ch, substringHash);
+            }
+
+            var leftIndex = FindIndexOfAnyCharInHash(0, fullstring, substringHash);
+            if (leftIndex == -1)
+            {
+                return "";
+            }
+
+            var rightIndex = leftIndex;
+            var currentWindowLeft = 0;
+            var currentWindowRight = fullstring.Length;
+            var matchCount = 0;
+
+            while (rightIndex >= 0)
+            {
+                var rightChar = fullstring[rightIndex];
+                if (--substringHash[rightChar] >= 0)
+                {
+                    matchCount++;
+                }
+
+                while (leftIndex >= 0 && matchCount == substring.Length)
+                {
+                    if (rightIndex - leftIndex < currentWindowRight - currentWindowLeft)
+                    {
+                        currentWindowLeft = leftIndex;
+                        currentWindowRight = rightIndex;
+                    }
+
+                    var leftChar = fullstring[leftIndex];
+
+                    if (++substringHash[leftChar] > 0)
+                    {
+                        matchCount--;
+                    }
+
+                    leftIndex = FindIndexOfAnyCharInHash(leftIndex + 1, fullstring, substringHash);
+
+                }
+
+                rightIndex = FindIndexOfAnyCharInHash(rightIndex + 1, fullstring, substringHash);
+            }
+
+            return fullstring.Substring(currentWindowLeft, currentWindowRight - currentWindowLeft + 1);
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            var subStringHash = new Dictionary<char, int>();
+            var substring = "AABC";
+            var fullstring = "AAAAAAAAAAAAABBCCAADDAACB";
 
-            if (subStringHash.ContainsKey('T'))
-            {
-                subStringHash['T']++;
-            }
-            else
-            {
-                subStringHash.Add('T', 1);
-            }
+            var test = MinWindowSubstring.FindMinWindowSubstring(substring, fullstring);
 
-            Console.Write(subStringHash.Count);
+            Console.Write(test);
         }
     }
 }
