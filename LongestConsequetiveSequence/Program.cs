@@ -20,7 +20,7 @@ namespace LongestConsequetiveSequence
             }
         }
 
-        // [2 1 4 7 6 5 8 9 10]
+        // [1 2 3 4 5 10 9 8 7 6 ]
         static int LongestConsecutiveSequenceBoundary(int[] array)
         {
             var retLen = 0;
@@ -97,7 +97,7 @@ namespace LongestConsequetiveSequence
 
         static void Main(string[] args)
         {
-            var test = new int[] {4, 3, 2, 1, 6, -2, -1, 0, 7, 8, 9, 5 };
+            var test = new int[] {1, 2, 3, 4, 5, 10, 9, 8, 7, 6};
 
             var ret = LongestConsecutiveSequenceBoundary(test);
             ret = LongestConsecutiveSequenceBrute(test);

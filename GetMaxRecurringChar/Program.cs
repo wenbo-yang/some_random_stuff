@@ -4,15 +4,6 @@ using System.IO;
 using System.Linq;
 class Solution
 {
-    static int Min(int a, int b)
-    {
-        if (a > b)
-        {
-            return b;
-        }
-        return a;
-    }
-
     static int GetNumRecurringCharInString(string input, string target)
     {
         var temp = input.Replace(target, String.Empty);
@@ -31,7 +22,7 @@ class Solution
         var additionalLength = 0;
         foreach (var element in intersectArray)
         {
-            var min = Min(GetNumRecurringCharInString(a, element.ToString()), GetNumRecurringCharInString(b, element.ToString()));
+            var min = Math.Min(GetNumRecurringCharInString(a, element.ToString()), GetNumRecurringCharInString(b, element.ToString()));
             additionalLength += min;
         }
 

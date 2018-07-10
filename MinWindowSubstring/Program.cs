@@ -8,21 +8,24 @@ namespace MinWindowSubstring
 {
     public class MinWindowSubstring
     {
-        public string FindMinWindowSubstring(string substring, string fullString)
+        public static string FindMinWindowSubstring(string substring, string fullString)
         {
+            if(string.IsNullOrEmpty(substring) && string.IsNullOrEmpty(fullString) ||
+                substring.Length > fullString.Length)
+            {
+                return "";
+            }
+
             var substringHash = new Dictionary<char, int>();
             var fullStringHash = new Dictionary<char, int>();
             var charArray = substring.ToArray();
             foreach (var character in charArray)
             {
-                if (substringHash.ContainsKey(character))
+                if (!substringHash.ContainsKey(character))
                 {
-                    substringHash[character]++;
+                    substringHash.Add(character, 0);
                 }
-                else
-                {
-                    substringHash.Add(character, 1);
-                }
+                substringHash[character]++;
             }
 
             foreach (var pair in substringHash)
@@ -41,7 +44,7 @@ namespace MinWindowSubstring
 
             string windowedString = "";
 
-            while (rightIndex < fullString.Length)
+            while (rightIndex < fullString.Length && rightIndex >= 0)
             {
                 var rightChar = fullString[rightIndex];
                 if (substringHash.ContainsKey(rightChar))
@@ -50,9 +53,11 @@ namespace MinWindowSubstring
                     matchCount++;
                 }
 
-                while (leftIndex < fullString.Length && matchCount == substring.Length)
+                // see if we can shrink the window // 
+                while (leftIndex >= 0 && leftIndex < fullString.Length && matchCount >= substring.Length)
                 {
-                    if (string.IsNullOrWhiteSpace(windowedString) || windowedString.Length > rightIndex - leftIndex + 1)
+                    // if a smaller window is found then assign it to that windowed substring
+                    if (string.IsNullOrEmpty(windowedString) || windowedString.Length > rightIndex - leftIndex + 1)
                     {
                         windowedString = fullString.Substring(leftIndex, rightIndex - leftIndex + 1);
                     }
@@ -66,49 +71,37 @@ namespace MinWindowSubstring
                     }
 
                     leftIndex = FindIndexOfNextCharInHash(leftIndex + 1, fullString, substringHash);
-
                 }
 
+                // expand the window until 
                 rightIndex = FindIndexOfNextCharInHash(rightIndex + 1, fullString, substringHash);
             }
 
             return windowedString;
         }
 
-        private int FindIndexOfNextCharInHash(int startIndex, string fullString, Dictionary<char, int> substringHash)
+        private static int FindIndexOfNextCharInHash(int startIndex, string fullString, Dictionary<char, int> substringHash)
         {
 
-            for (int leftIndex = startIndex; leftIndex < fullString.Length; leftIndex++)
+            for (int index = startIndex; index < fullString.Length; index++)
             {
                 if (substringHash.ContainsKey(fullString[startIndex]))
                 {
-                    return leftIndex;
+                    return index;
                 }
             }
 
             return -1;
         }
-
-
-
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            var subStringHash = new Dictionary<char, int>();
+            var result = MinWindowSubstring.FindMinWindowSubstring("AABC", "AAAAAAAAAAAAAAAAABC");
 
-            if (subStringHash.ContainsKey('T'))
-            {
-                subStringHash['T']++;
-            }
-            else
-            {
-                subStringHash.Add('T', 1);
-            }
-
-            Console.Write(subStringHash.Count);
+            Console.Write(result);
         }
     }
 }

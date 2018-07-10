@@ -8,7 +8,7 @@ namespace SlidingWindowMaximum
 {
 class MonotonicQueue
 {
-    public void push(int e)
+    public void Push(int e)
     {
         if (data.Count > 0 && e > data[0])
         {
@@ -17,19 +17,19 @@ class MonotonicQueue
         data.Add(e);
     }
 
-    public void pop()
+    public void Pop()
     {
         data.RemoveAt(0);
     }
 
-    public int max()
+    public int Max()
     {
         return data[0];
     }
 
     List<int> data;
 }
-
+// use heap
 class Solution
 {
     List<int> maxSlidingWindow(int[] nums, int k)
@@ -39,11 +39,14 @@ class Solution
 
         for (int i = 0; i < nums.Length; ++i)
         {
-            q.push(nums[i]);
+            q.Push(nums[i]);
             if (i - k + 1 >= 0)
             {
-                ans.Add(q.max());
-                if (nums[i - k + 1] == q.max()) q.pop();
+                ans.Add(q.Max());
+                if (nums[i - k + 1] == q.Max())
+                {
+                    q.Pop();
+                }
             }
         }
         return ans;
