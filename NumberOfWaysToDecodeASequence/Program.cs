@@ -136,43 +136,73 @@ namespace NumberOfWaysToDecodeASequence
             return dp2;
         }
 
-        public int NumOfDecodingWaysO1SpaceAlt(string input)
+
+        // 102512 
+        public static int NumOfDecodingWaysO1SpaceAlt(string input)
         {
-            if (string.IsNullOrWhiteSpace(input))
+            if (string.IsNullOrWhiteSpace(input) || !IsValid(input[0]))
             {
                 return 0;
             }
 
-            int dp0 = input[0] == '0' ? 0 : 1; // initial or previews result
-            int dp1 = 1; // current result
-
-            for (int i = 1; i <= input.Length; i++)
+            if (input.Length == 1)
             {
-                // if this is smaller than 9
-                if (input[i] == '0')
-                {
-                    dp1 = 0;
-                }
-
-                // is between 10 and 26
-                int num = Convert.ToInt32(input.Substring(i - 1, 2));
-                if (num >= 10 && num <= 26)
-                {
-                    var temp = dp1;
-                    dp1 = dp0 + dp1;
-                    dp0 = dp1;
-                }
-                else
-                {
-                    dp0 = dp1;
-                }
+                return 1;
             }
 
-            return dp1;
+            int m_curr = 1;
+            int m_prev = 1; 
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                if (!IsValid(input[i]) && !IsValid(input[i - 1], input[i]))
+                {
+                    return 0;
+                }
+
+                int m = 0;
+
+                // is between 1 and 9
+                if (IsValid(input[i]))
+                {
+                    m = m_curr;
+                }
+
+                // if it is between 10 and 26
+                if (IsValid(input[i - 1], input[i]))
+                {
+                    m = m_prev + m;
+                }
+
+                // save current state
+                m_prev = m_curr;
+                m_curr = m;
+            }
+
+            return m_curr;
+        }
+
+        private static bool IsValid(char c)
+        {
+            var num = Convert.ToInt32(c.ToString());
+            return num > 0 && num <= 9;
+        }
+
+        private static bool IsValid(char c1, char c2)
+        {
+            if (Convert.ToInt32(c1.ToString()) == 0)
+            {
+                return false;
+            }
+
+            int num = Convert.ToInt32(c1.ToString() + c2.ToString());
+            return num >= 10 && num <= 26;
         }
 
         static void Main(string[] args)
         {
+            var test = NumOfDecodingWaysO1SpaceAlt("102512"); // => 2, 5, 12; 2 5 1 2; 25 12; 25 1 2;
+            Console.Write(test);
         }
     }
 }
