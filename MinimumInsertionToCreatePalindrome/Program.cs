@@ -8,6 +8,7 @@ namespace MinimumInsertionToCreatePalindrome
 {
     class Program
     {
+        // dynamic programming //
         int GetMinimumInsertion(char[] str, int n)
         {
             var table = new int[str.Length, str.Length];

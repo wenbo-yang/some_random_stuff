@@ -10,6 +10,7 @@ namespace FindAllAnagrams
     {
         // use hash table to store anagram
         // find element in the hash table
+        // sliding window
         void AddToDictionary(Dictionary<int, int> table, char item)
         {
             if (!table.ContainsKey(item))

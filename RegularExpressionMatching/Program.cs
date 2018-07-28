@@ -54,7 +54,10 @@ namespace RegularExpressionMatching
         {
             var test = new int[2, 3];
             var length = test.GetLength(0);
-            var res = matchRegex(new char[] { 'a', 'a', 'a', 'b' }, new char[] {'c', '*', 'a', '*', 'b' });
+            var res = MatchRegex(new char[] { 'a', 'a', 'a', 'b' }, new char[] {'c', '*', 'a', '*', 'b' });
+
+            var test2 = new List<int>();
+            
         }
     }
 }

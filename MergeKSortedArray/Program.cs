@@ -27,7 +27,7 @@ namespace MergeKSortedArray
         public int Peek() { return 0; }
     }
 
-
+    // if merge two sorted array so it will be log k without extra space
     class Program
     {
         public void MergeKSortedArray(List<int[]> sortedArrayList, int totalNumOfElements)

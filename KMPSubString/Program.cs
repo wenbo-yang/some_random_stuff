@@ -45,7 +45,7 @@ namespace KMPSubString
          * Compute temporary array to maintain size of suffix which is same as prefix
          * Time/space complexity is O(size of pattern)
          */
-        private int[] computeTemporaryArray(char[] pattern)
+        private int[] ComputeTemporaryArray(char[] pattern)
         {
             int[] lps = new int[pattern.Length];
             int index = 0;
@@ -79,7 +79,7 @@ namespace KMPSubString
         public bool KMP(char[] text, char[] pattern)
         {
 
-            var lps = computeTemporaryArray(pattern);
+            var lps = ComputeTemporaryArray(pattern);
             int i = 0;
             int j = 0;
             while (i < text.Length && j < pattern.Length)

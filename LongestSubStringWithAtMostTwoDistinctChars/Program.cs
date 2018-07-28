@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// use sliding window
+
 namespace LongestSubStringWithAtMostKDistinctChars
 {
+    // use sliding window
     class Program
     {
         static void Main(string[] args)

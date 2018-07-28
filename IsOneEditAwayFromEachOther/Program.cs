@@ -8,7 +8,7 @@ namespace IsOneEditAwayFromEachOther
 {
     class Program
     {
-        public bool isOneEditDistance(string s1, string s2)
+        public bool IsOneEditDistance(string s1, string s2)
         {
             if (string.IsNullOrEmpty(s1) || string.IsNullOrEmpty(s2))
             {

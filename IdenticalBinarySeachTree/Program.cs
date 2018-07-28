@@ -15,7 +15,8 @@ namespace IdenticalBinaryTree
     class BinaryTree
     {
         Node root1, root2;
-
+        // mirror tree is IsIdentical(a.right, b.left);
+        //                IsIdentical(a.left, b.right);
         /* Given two trees, return true if they are
            structurally identical */
         public bool IdenticalTrees(Node a, Node b)
