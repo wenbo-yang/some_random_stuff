@@ -63,7 +63,6 @@ namespace TranslateDigitIntoWords
             return res;
         }
 
-
         static void Main(string[] args)
         {
         }
