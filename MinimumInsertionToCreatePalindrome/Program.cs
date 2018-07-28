@@ -8,10 +8,11 @@ namespace MinimumInsertionToCreatePalindrome
 {
     class Program
     {
-        // dynamic programming //
-        int GetMinimumInsertion(char[] str, int n)
+        // dynamic programming add to 2d Array
+        int GetMinimumInsertion(char[] str)
         {
             var table = new int[str.Length, str.Length];
+            var n = str.Length;
 
             for (var i = 1; i < str.Length; i++)
             {

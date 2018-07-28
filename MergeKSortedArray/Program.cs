@@ -94,10 +94,8 @@ namespace MergeKSortedArray
             Console.WriteLine(test.Length.ToString());
             Console.WriteLine(test.GetLength(0).ToString());
 
-            var test2 = new List<int>();
-            int[] test3 = null;
-            test2.CopyTo();
-
+            var test1 = new HashSet<int>();
+            test1.Add(1);
         }
     }
 }

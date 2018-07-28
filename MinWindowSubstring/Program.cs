@@ -8,7 +8,6 @@ namespace MinWindowSubstring
 {
     public static class MinWindowSubstring
     {
-
         private static void AddToDictionary(char ch, Dictionary<char, int> substringHash)
         {
             if (!substringHash.ContainsKey(ch))
@@ -41,6 +40,7 @@ namespace MinWindowSubstring
                 {
                     return false;
                 }
+                substringHash[pair.Key]++;
             }
 
             return true;
